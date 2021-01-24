@@ -1,30 +1,85 @@
 
 
+
+// e.create_friend = `insert into friends (first_name, last_name, age , added) values($1,$2,$3,$4) `;
+// e.read_friend = `select * from friends where first_name = $1`;
+// e.update_friend = `update friends set age = $1 where first_name = $2`;
+// e.delete_friend = `delete from friends where first_name = $1`;
+
+const qStrings = require(".././tools/sqlStrings");
+const query = require(".././tools/queryDatabase");
+const dbFail = require(".././tools/dbFailSafe");
+
 module.exports = {
 
-
-    getFunction : async(req,res) => {
-        console.log('body: ', req.body)
-        console.log('getFunction called')
-        return res(200).send({"Success":"success"})
+    //GET
+    /* requires body such as
+    { 
+        first_name
+    }
+    */
+    readFriend : async(req,res) => {
+        b = req.body
+        const text = qStrings.readFriend;
+        const values = [b.first_name];
+        query(text, values, (err, result) => {
+            if (err) return dbFail.failSafe(err, res);
+            console.log(result.rows)
+            return res.status(200).send(result.rows);
+        });
     },
 
-    postFunction : async(req,res) => {
-        console.log('body: ', req.body)
-        console.log('postFunction called')
-        return res(200).send({"Success":"success"})
+    //POST
+    /* requires body such as
+    { 
+        first_name,
+        last_name,
+        age
+    }
+    */
+    createFriend : async(req,res) => {
+        b = req.body
+        const text = qStrings.createFriend;
+        const values = [b.first_name, b.last_name, b.age, Date.now()];
+        query(text, values, (err, result) => {
+            if (err) return dbFail.failSafe(err, res);
+            return res.status(200).send('successfully created friend');
+        });
     },
 
-    patchFunction : async(req,res) => {
-        console.log('body: ', req.body)
-        console.log('patchFunction called')
-        return res(200).send({"Success":"success"})
+    //PATCH
+    /* requires body such as
+    { 
+        first_name
+        age
+    }
+    */
+    updateFriend : async(req,res) => {
+        b = req.body
+        const text = qStrings.updateFriend;
+        const values = [b.first_name, b.age];
+        query(text, values, (err, result) => {
+            if (err) return dbFail.failSafe(err, res);
+            //console.log(result.rows)
+            return res.status(200).send('successfully updated friend');
+        });
     },
 
-    deleteFunction : async(req,res) => {
-        console.log('body: ', req.body)
-        console.log('deleteFunction called')
-        return res(200).send({"Success":"success"})
+    //DELETE
+    /* requires body such as
+    { 
+        first_name
+    }
+    */
+    deleteFriend : async(req,res) => {
+        b = req.body
+        const text = qStrings.deleteFriend;
+        const values = [b.first_name];
+        query(text, values, (err, result) => {
+            if (err) return dbFail.failSafe(err, res);
+            //console.log(result.rows)
+            return res.status(200).send('successfully deleted friend');
+        });
     },
 
 
