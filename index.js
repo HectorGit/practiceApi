@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({
 //think it has to do with parsing responses
 
 app.use(express.json());
+//app.use("/public", express.static(path.join(__dirname, "/public"))); //not sure if this is necessary
 app.use("/", require("./routes/get"));
 app.use("/", require("./routes/post"));
 app.use("/", require("./routes/patch"));

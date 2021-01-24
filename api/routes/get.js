@@ -10,6 +10,11 @@ const dbFail = require(".././tools/dbFailSafe");
 const MyController = require('../controllers/myController');
 //let MyController = "../controllers/myController" 
 
+getrouter.get("/", (req, res) => {
+    return res.send("Welcome to Hector\'s Practice API! 🌝");
+
+});
+
 getrouter.route('/get_example', async(req,res)=>{
     MyController.readFriend
 });

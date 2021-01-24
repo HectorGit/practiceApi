@@ -1,7 +1,6 @@
 const express = require("express");
 const deleterouter = express.Router();
 
-const myController = require("../controllers/myController");
 const query = require(".././tools/queryDatabase");
 const qStrings = require(".././tools/sqlStrings");
 const val = require(".././tools/validate");
