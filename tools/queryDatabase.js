@@ -11,7 +11,10 @@ require('dotenv').config()
 const Pool = require('pg').Pool
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.REQUIRE_SSL.toLowerCase() == "true"
+  //ssl: process.env.REQUIRE_SSL.toLowerCase() == "true"
+  ssl: {
+    rejectUnauthorized: false
+  }
 })
 
 // queryDatabase(text, values, cb(err, result)) {
