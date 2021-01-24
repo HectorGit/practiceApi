@@ -8,7 +8,7 @@ const dbFail = require(".././tools/dbFailSafe");
 
 const MyController = require('../controllers/myController');
 
-deleterouter.route('/delete_example', async(req,res)=>{
+deleterouter.delete("/delete_friend", async(req,res)=>{
     MyController.deleteFriend
 });
 

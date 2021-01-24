@@ -9,8 +9,8 @@ const dbFail = require(".././tools/dbFailSafe");
 const MyController = require('../controllers/myController');
 
 
-
-postrouter.route('/post_example', async(req,res)=>{
+//careful here, include method postrouter.post
+postrouter.post("/create_friend", async(req,res)=>{
     MyController.createFriend
 });
 

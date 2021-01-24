@@ -15,7 +15,8 @@ getrouter.get("/", (req, res) => {
 
 });
 
-getrouter.route('/get_example', async(req,res)=>{
+//careful here ! i had getrouter.route so it didn't work !
+getrouter.get("/read_friend", async(req,res)=>{
     MyController.readFriend
 });
 
