@@ -1,3 +1,6 @@
+const express = require("express");
+const deleterouter = express.Router();
+
 const myController = require("../controllers/myController");
 const query = require(".././tools/queryDatabase");
 const qStrings = require(".././tools/sqlStrings");
@@ -6,6 +9,8 @@ const dbFail = require(".././tools/dbFailSafe");
 
 const MyController = require('../controllers/myController');
 
-app.route('/delete_example', async(req,res)=>{
-    MyController.deleteFunction
+deleterouter.route('/delete_example', async(req,res)=>{
+    MyController.deleteFriend
 });
+
+module.exports = deleterouter;

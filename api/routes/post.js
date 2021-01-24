@@ -1,3 +1,5 @@
+const express = require("express");
+const postrouter = express.Router();
 
 const query = require(".././tools/queryDatabase");
 const qStrings = require(".././tools/sqlStrings");
@@ -6,6 +8,10 @@ const dbFail = require(".././tools/dbFailSafe");
 
 const MyController = require('../controllers/myController');
 
-app.route('/post_example', async(req,res)=>{
-    MyController.postFunction
+
+
+postrouter.route('/post_example', async(req,res)=>{
+    MyController.createFriend
 });
+
+module.exports = postrouter;
