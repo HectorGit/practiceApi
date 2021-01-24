@@ -8,8 +8,8 @@ const dbFail = require(".././tools/dbFailSafe");
 
 const MyController = require('../controllers/myController');
 
-patchrouter.patch("/update_friend", async(req,res)=>{
+patchrouter.patch("/update_friend",
     MyController.updateFriend
-});
+);
 
 module.exports = patchrouter;

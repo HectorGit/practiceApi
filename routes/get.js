@@ -16,9 +16,12 @@ getrouter.get("/", (req, res) => {
 });
 
 //careful here ! i had getrouter.route so it didn't work !
-getrouter.get("/read_friend", async(req,res)=>{
+//also don't encapsule in async when using controller!
+// getrouter.get("/read_friend", async(req,res)=>{
+//     MyController.readFriend
+// });
+getrouter.get("/read_friend", 
     MyController.readFriend
-});
-
+);
 
 module.exports = getrouter;

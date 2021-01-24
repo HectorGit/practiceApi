@@ -12,6 +12,7 @@ module.exports = {
     }
     */
     readFriend : async(req,res) => {
+        console.log('reading friend...')
         b = req.body
         const text = qStrings.readFriend;
         const values = [b.first_name];

@@ -8,8 +8,8 @@ const dbFail = require(".././tools/dbFailSafe");
 
 const MyController = require('../controllers/myController');
 
-deleterouter.delete("/delete_friend", async(req,res)=>{
+deleterouter.delete("/delete_friend",
     MyController.deleteFriend
-});
+);
 
 module.exports = deleterouter;

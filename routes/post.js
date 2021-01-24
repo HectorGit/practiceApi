@@ -10,8 +10,8 @@ const MyController = require('../controllers/myController');
 
 
 //careful here, include method postrouter.post
-postrouter.post("/create_friend", async(req,res)=>{
+postrouter.post("/create_friend",
     MyController.createFriend
-});
+);
 
 module.exports = postrouter;
