@@ -2,6 +2,7 @@
 const qStrings = require(".././tools/sqlStrings");
 const query = require(".././tools/queryDatabase");
 const dbFail = require(".././tools/dbFailSafe");
+const moment = require("moment");//used for timestamp
 
 module.exports = {
 
