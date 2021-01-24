@@ -7,16 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type":"git",
-    "url":"git+https://github.com/HectorGit/practiceApi.git"
+    "type": "git",
+    "url": "git+https://github.com/HectorGit/practiceApi.git"
   },
   "keywords": [
     "API"
   ],
   "author": "Hector Perez",
   "license": "ISC",
-  "bugs":{
-    "url":"https://github.com/HectorGit/practiceApi/issues"
+  "bugs": {
+    "url": "https://github.com/HectorGit/practiceApi/issues"
   },
-  "homepage": "https://github.com/HectorGit/practiceApi#readme"
+  "homepage": "https://github.com/HectorGit/practiceApi#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
 }
