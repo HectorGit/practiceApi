@@ -1,6 +1,10 @@
+const query = require(".././tools/queryDatabase");
+const qStrings = require(".././tools/sqlStrings");
+const val = require(".././tools/validate");
+const dbFail = require(".././tools/dbFailSafe");
 
-let MyController = "../controllers/myController" 
+const MyController = require('../controllers/myController');
 
 app.route('/patch_example', async(req,res)=>{
-    myController.patchFunction
+    MyController.patchFunction
 });
