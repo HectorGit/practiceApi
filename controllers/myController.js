@@ -35,7 +35,7 @@ module.exports = {
     createFriend : async(req,res) => {
         b = req.body
         const text = qStrings.createFriend;
-        const values = [b.first_name, b.last_name, b.age, Date.now()];
+        const values = [b.first_name, b.last_name, b.age, moment()];
         query(text, values, (err, result) => {
             if (err) return dbFail.failSafe(err, res);
             return res.status(200).send('successfully created friend');
