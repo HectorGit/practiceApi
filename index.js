@@ -6,6 +6,8 @@ var port =  process.env.PORT || 5001;
 global.app_root = path.resolve(__dirname);//this is strange.
 //think it has to do with the app knowing where the root directory is.
 
+console.log('global.app_root: ', global.app_root)
+
 router = express.Router();
 app.use(router);//this is also strange
 //think it has to do with creating routes
