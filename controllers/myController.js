@@ -15,8 +15,23 @@ module.exports = {
     readFriend : async(req,res) => {
         console.log('reading friend...')
         b = req.body
+        p = req.params
+        console.log('b: ',b)       
+        console.log('p: ',p)
         const text = qStrings.readFriend;
         const values = [b.first_name];
+        query(text, values, (err, result) => {
+            if (err) return dbFail.failSafe(err, res);
+            console.log(result.rows)
+            return res.status(200).send(result.rows);
+        });
+    },
+
+    readAllFriends : async(req,res) => {
+        console.log('reading friends...')
+        const text = qStrings.readAllFriends;
+        //const values = [b.first_name];
+        const values = [];
         query(text, values, (err, result) => {
             if (err) return dbFail.failSafe(err, res);
             console.log(result.rows)

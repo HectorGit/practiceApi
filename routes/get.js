@@ -25,4 +25,8 @@ getrouter.get("/read_friend",
     MyController.readFriend
 );
 
+getrouter.get("/read_all_friends", 
+    MyController.readAllFriends
+);
+
 module.exports = getrouter;
