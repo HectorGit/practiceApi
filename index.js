@@ -3,10 +3,10 @@ var app = express();
 var path = require("path");//this is strange, not sure if we have to get this installed
 const bodyParser = require('body-parser')//not sure what this is for but definitely needed.
 var port =  process.env.PORT || 5001;
-global.app_root = path.resolve(__dirname);//this is strange.
+//global.app_root = path.resolve(__dirname);//this is strange.
 //think it has to do with the app knowing where the root directory is.
 
-console.log('global.app_root: ', global.app_root)
+//console.log('global.app_root: ', global.app_root)
 
 router = express.Router();
 app.use(router);//this is also strange
@@ -19,12 +19,30 @@ app.use(bodyParser.urlencoded({
 //think it has to do with parsing responses
 
 app.use(express.json());
+
+app.use(express.static('public'));
+// app.use(express.static('public/html'));
+// app.use(express.static('public/css'));
+// app.use(express.static('public/js'));
+// app.use(express.static('public/img'));
+
+// app.use(express.static(path.resolve(__dirname, '/public')));
+// app.use(express.static(path.resolve(__dirname, '/public/html')));
+// app.use(express.static(path.resolve(__dirname, '/public/css')));
+// app.use(express.static(path.resolve(__dirname, '/public/js')));
+// app.use(express.static(path.resolve(__dirname, '/public/img')));
+
 //app.use("/public", express.static(path.join(__dirname, "/public"))); //not sure if this is necessary
-app.use("/", require("./routes/get"));
-app.use("/", require("./routes/post"));
-app.use("/", require("./routes/patch"));
-app.use("/", require("./routes/delete"));
+
+// app.use("/", require("./routes/get"));
+// app.use("/", require("./routes/post"));
+// app.use("/", require("./routes/patch"));
+// app.use("/", require("./routes/delete"));
+
+app.get('/', function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public/html/index.html'));
+});
 
 app.listen(port);
 
-console.log('my practice API started on : ' + port)
+console.log('my Node server started on : ' + port)
