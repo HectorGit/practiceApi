@@ -21,18 +21,6 @@ app.use(bodyParser.urlencoded({
 app.use(express.json());
 
 app.use(express.static('public'));
-// app.use(express.static('public/html'));
-// app.use(express.static('public/css'));
-// app.use(express.static('public/js'));
-// app.use(express.static('public/img'));
-
-// app.use(express.static(path.resolve(__dirname, '/public')));
-// app.use(express.static(path.resolve(__dirname, '/public/html')));
-// app.use(express.static(path.resolve(__dirname, '/public/css')));
-// app.use(express.static(path.resolve(__dirname, '/public/js')));
-// app.use(express.static(path.resolve(__dirname, '/public/img')));
-
-//app.use("/public", express.static(path.join(__dirname, "/public"))); //not sure if this is necessary
 
 // app.use("/", require("./routes/get"));
 // app.use("/", require("./routes/post"));
